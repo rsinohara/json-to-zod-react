@@ -75,6 +75,7 @@ export const JsonToZod = () => {
           </button>
         </div>
       </div>
+      <a href="https://www.npmjs.com/package/json-to-zod">Get the CLI NPM package here</a>
     </>
   );
 };
