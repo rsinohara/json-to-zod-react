@@ -12,7 +12,7 @@ export const JsonToZod = () => {
 
   useEffect(() => {
     try {
-      setZod(jsonToZod(json5.parse(json), name, module));
+      setZod(jsonToZod(json5.parse(json), name || "schema", module));
       setErrors("");
     } catch (e) {
       setErrors(`Errors:\n${e}`);
@@ -42,7 +42,7 @@ export const JsonToZod = () => {
           ></input>
           <b>Json</b>
           <textarea
-            style={{ width: 400, minHeight: 600 }}
+            style={{ width: 400 }}
             value={json}
             onChange={(e) => setJson(e.target.value)}
           ></textarea>
@@ -57,15 +57,15 @@ export const JsonToZod = () => {
           }}
         >
           <b>Result</b>
-          <pre
+          <textarea
             style={{
-              minWidth: 400,
-              border: "1px solid grey",
+              width: 400,
               color: errors ? "red" : "black",
             }}
-          >
-            {errors || zod}
-          </pre>
+            value={errors || zod}
+            // @ts-ignore
+            onClick={(e) => e.target.select()}
+          ></textarea>
           <button
             style={{ width: "100%" }}
             disabled={!!errors}
