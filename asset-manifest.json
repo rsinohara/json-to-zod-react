@@ -1,19 +1,19 @@
 {
   "files": {
-    "main.js": "/json-to-zod-react/static/js/main.8d69f111.chunk.js",
-    "main.js.map": "/json-to-zod-react/static/js/main.8d69f111.chunk.js.map",
+    "main.js": "/json-to-zod-react/static/js/main.ac940e3f.chunk.js",
+    "main.js.map": "/json-to-zod-react/static/js/main.ac940e3f.chunk.js.map",
     "runtime-main.js": "/json-to-zod-react/static/js/runtime-main.00a60bad.js",
     "runtime-main.js.map": "/json-to-zod-react/static/js/runtime-main.00a60bad.js.map",
-    "static/js/2.5b9b4690.chunk.js": "/json-to-zod-react/static/js/2.5b9b4690.chunk.js",
-    "static/js/2.5b9b4690.chunk.js.map": "/json-to-zod-react/static/js/2.5b9b4690.chunk.js.map",
+    "static/js/2.4b1bcb60.chunk.js": "/json-to-zod-react/static/js/2.4b1bcb60.chunk.js",
+    "static/js/2.4b1bcb60.chunk.js.map": "/json-to-zod-react/static/js/2.4b1bcb60.chunk.js.map",
     "static/js/3.dfd1dbbc.chunk.js": "/json-to-zod-react/static/js/3.dfd1dbbc.chunk.js",
     "static/js/3.dfd1dbbc.chunk.js.map": "/json-to-zod-react/static/js/3.dfd1dbbc.chunk.js.map",
     "index.html": "/json-to-zod-react/index.html",
-    "static/js/2.5b9b4690.chunk.js.LICENSE.txt": "/json-to-zod-react/static/js/2.5b9b4690.chunk.js.LICENSE.txt"
+    "static/js/2.4b1bcb60.chunk.js.LICENSE.txt": "/json-to-zod-react/static/js/2.4b1bcb60.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
     "static/js/runtime-main.00a60bad.js",
-    "static/js/2.5b9b4690.chunk.js",
-    "static/js/main.8d69f111.chunk.js"
+    "static/js/2.4b1bcb60.chunk.js",
+    "static/js/main.ac940e3f.chunk.js"
   ]
 }
