@@ -1,26 +1,82 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { useState, useEffect } from "react";
+import { jsonToZod } from "json-to-zod";
+import copy from "copy-to-clipboard";
+import json5 from "json5";
 
-function App() {
+export const JsonToZod = () => {
+  const [json, setJson] = useState("{}");
+  const [zod, setZod] = useState("");
+  const [errors, setErrors] = useState("");
+  const [name, setName] = useState("schema");
+  const [module, setModule] = useState(false);
+
+  useEffect(() => {
+    try {
+      setZod(jsonToZod(json5.parse(json), name, module));
+      setErrors("");
+    } catch (e) {
+      setErrors(`Errors:\n${e}`);
+    }
+  }, [json, name, module]);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
+    <>
+      <h1>Json To Zod</h1>
+      <div style={{ display: "flex" }}>
+        <div
+          style={{
+            display: "flex",
+            flexDirection: "column",
+            margin: 10,
+            padding: 10,
+            border: "1px solid grey",
+          }}
         >
-          Learn React
-        </a>
-      </header>
-    </div>
+          <b>Schema name</b>
+          <input value={name} onChange={(e) => setName(e.target.value)}></input>
+          <b>Module</b>
+          <input
+            type="checkbox"
+            checked={module}
+            onChange={(e) => setModule(e.target.checked)}
+          ></input>
+          <b>Json</b>
+          <textarea
+            style={{ width: 400, minHeight: 600 }}
+            value={json}
+            onChange={(e) => setJson(e.target.value)}
+          ></textarea>
+        </div>
+        <div
+          style={{
+            display: "flex",
+            flexDirection: "column",
+            margin: 10,
+            padding: 10,
+            border: "1px solid grey",
+          }}
+        >
+          <b>Result</b>
+          <pre
+            style={{
+              minWidth: 400,
+              border: "1px solid grey",
+              color: errors ? "red" : "black",
+            }}
+          >
+            {errors || zod}
+          </pre>
+          <button
+            style={{ width: "100%" }}
+            disabled={!!errors}
+            onClick={() => copy(zod)}
+          >
+            Copy
+          </button>
+        </div>
+      </div>
+    </>
   );
-}
+};
 
-export default App;
+export default JsonToZod;
