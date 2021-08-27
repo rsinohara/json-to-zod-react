@@ -1,7 +1,18 @@
 import React, { useState, useEffect } from "react";
 import { jsonToZod } from "json-to-zod";
+import  styled  from 'styled-components';
 import copy from "copy-to-clipboard";
 import json5 from "json5";
+
+
+const JsonArea = styled.textarea<{errors?:string}>`{
+  width: 400px;
+  color: ${props => props.errors ? "red" : "black"};
+  flex-grow: 1;
+  margin-top: 5px;
+  margin-bottom: 5px;
+  min-height: 200px;
+}`
 
 export const JsonToZod = () => {
   const [json, setJson] = useState("{}");
@@ -41,11 +52,10 @@ export const JsonToZod = () => {
             onChange={(e) => setModule(e.target.checked)}
           ></input>
           <b>Json</b>
-          <textarea
-            style={{ width: 400 }}
+          <JsonArea
             value={json}
             onChange={(e) => setJson(e.target.value)}
-          ></textarea>
+          ></JsonArea>
         </div>
         <div
           style={{
@@ -57,15 +67,11 @@ export const JsonToZod = () => {
           }}
         >
           <b>Result</b>
-          <textarea
-            style={{
-              width: 400,
-              color: errors ? "red" : "black",
-            }}
+          <JsonArea
+            readOnly
+            errors={errors}
             value={errors || zod}
-            // @ts-ignore
-            onClick={(e) => e.target.select()}
-          ></textarea>
+          ></JsonArea>
           <button
             style={{ width: "100%" }}
             disabled={!!errors}
